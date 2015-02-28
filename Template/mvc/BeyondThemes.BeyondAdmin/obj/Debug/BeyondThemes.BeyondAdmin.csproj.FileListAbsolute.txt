@@ -434,4 +434,3 @@ C:\heisenberg\Template\mvc\BeyondThemes.BeyondAdmin\bin\System.Web.Optimization.
 C:\heisenberg\Template\mvc\BeyondThemes.BeyondAdmin\bin\Antlr3.Runtime.pdb
 C:\heisenberg\Template\mvc\BeyondThemes.BeyondAdmin\obj\Debug\BeyondThemes.BeyondAdmin.dll
 C:\heisenberg\Template\mvc\BeyondThemes.BeyondAdmin\obj\Debug\BeyondThemes.BeyondAdmin.pdb
-C:\heisenberg\Template\mvc\BeyondThemes.BeyondAdmin\obj\Debug\BeyondThemes.BeyondAdmin.csprojResolveAssemblyReference.cache
