@@ -1,0 +1,12 @@
+﻿@{
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+
+@foreach (System.ServiceModel.Syndication.SyndicationItem references in (List<System.ServiceModel.Syndication.SyndicationItem>)ViewData["ProjectReferences"])
+{
+    <div>
+        <a href="@references.Id">@references.Title.Text</a>
+    </div>
+}
+
+
