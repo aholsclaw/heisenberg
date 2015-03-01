@@ -2,11 +2,135 @@
     Layout = "~/Views/Shared/_Default.cshtml";
 }
 
+@*@{string sVals = "";}
 @foreach (System.ServiceModel.Syndication.SyndicationItem references in (List<System.ServiceModel.Syndication.SyndicationItem>)ViewData["ProjectReferences"])
 {
-    <div>
-        <a href="@references.Id">@references.Title.Text</a>
+    if (sVals.Length > 0)
+    {
+        sVals = sVals + "," + "<a href='" + @references.Id + "'>" + @references.Title.Text + "</a>";
+        //sVals = sVals + "," + @references.Title.Text;
+    }
+    else
+    {
+        sVals = "<a href='" + @references.Id + "'>" + @references.Title.Text + "</a>";
+        //sVals = @references.Title.Text;
+    }
+}
+<div id="Val">
+    @sVals
+</div>*@
+
+<input type="hidden" id="hiPropose" value="@sVals" />
+
+<div class="row">
+    <div class="col-lg-6 col-sm-6 col-xs-6">
+        <div class="widget flat radius-bordered">
+            <div class="widget-header bg-blue">
+                <span class="widget-caption">Artifacts and Deliverables</span>
+
+                <div class="widget-buttons">
+                    <a href="#" data-toggle="collapse">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a href="#" data-toggle="dispose">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="widget-body">
+                <div id="MyTree" class="tree">
+                    <div class="tree-folder" style="display: none;">
+                        <div class="tree-folder-header">
+                            <i class="fa fa-folder"></i>
+                            <div class="tree-folder-name"></div>
+                        </div>
+                        <div class="tree-folder-content">
+                        </div>
+                        <div class="tree-loader" style="display: none;"></div>
+                    </div>
+                    <div class="tree-item" style="display: none;">
+                        <i class="tree-dot"></i>
+                        <div class="tree-item-name"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+
+
+@section PageScripts{
+    <script src="/assets/js/fuelux/treeview/tree-custom.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+
+            var proposeDocs = document.getElementById("hiPropose").value;
+            proposeDocs = proposeDocs.split(",");
+
+            var DataSourceTree = function (options) {
+                this._data = options.data;
+                this._delay = options.delay;
+            };
+
+            DataSourceTree.prototype =
+                {
+
+                    columns: function () {
+                        return this._columns;
+                    },
+
+                    data: function (options, callback) {
+
+                        var self = this;
+                        if (options.search) {
+                            callback({ data: self._data, start: start, end: end, count: count, pages: pages, page: page });
+                        } else if (options.data) {
+                            callback({ data: options.data, start: 0, end: 0, count: 0, pages: 0, page: 0 });
+                        } else {
+                            callback({ data: self._data, start: 0, end: 0, count: 0, pages: 0, page: 0 });
+                        }
+                    }
+                };
+
+
+
+            //var proposeData = []
+            //for (var i = 0; i < proposeDocs.length - 1; i++) {
+
+            //    proposeData.push({
+            //        name: proposeDocs[i],
+            //        type: "item"
+            //    });
+            //}
+
+            alert(proposeData);
+
+            // INITIALIZING TREE
+            var treeDataSource = new DataSourceTree({
+                data: [
+                    {
+                        name: 'Propose', type: 'folder', 'icon-class': 'blue', additionalParameters: { id: 'F1' },
+                        data: [{ name: 'Concept Proposal Form', type: 'item',additionalParameters: { id: 'I2' },
+                                { name: 'Conceptual Architecture', type: 'item',additionalParameters: { id: 'I2' } 
+                            ]
+                    },
+                    { name: 'Research', type: 'folder', 'icon-class': 'blue', additionalParameters: { id: 'F2' } },
+                    { name: 'Define', type: 'folder', 'icon-class': 'blue', additionalParameters: { id: 'F3' } },
+                    { name: 'Design', type: 'folder', 'icon-class': 'blue', additionalParameters: { id: 'F4' } },
+                    { name: 'Implement', type: 'folder', 'icon-class': 'blue', additionalParameters: { id: 'F5' } },
+                ],
+                delay: 400
+            });
+
+            $('#MyTree').tree({
+                dataSource: treeDataSource,
+                multiSelect: false,
+                loadingHTML: '<div class="tree-loading"><i class="fa fa-rotate-right fa-spin"></i></div>'
+            });
+        });
+    </script>
 }
 
 
