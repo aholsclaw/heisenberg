@@ -2,7 +2,7 @@
     Layout = "~/Views/Shared/_Default.cshtml";
 }
 
-@*@{string sVals = "";}
+@{string sVals = "";}
 @foreach (System.ServiceModel.Syndication.SyndicationItem references in (List<System.ServiceModel.Syndication.SyndicationItem>)ViewData["ProjectReferences"])
 {
     if (sVals.Length > 0)
@@ -16,9 +16,6 @@
         //sVals = @references.Title.Text;
     }
 }
-<div id="Val">
-    @sVals
-</div>*@
 
 <input type="hidden" id="hiPropose" value="@sVals" />
 
@@ -65,7 +62,6 @@
 
     <script>
         jQuery(document).ready(function () {
-
             var proposeDocs = document.getElementById("hiPropose").value;
             proposeDocs = proposeDocs.split(",");
 
@@ -94,32 +90,48 @@
                     }
                 };
 
+            var proposeData = []
+            for (var i = 0; i < proposeDocs.length - 1; i++) {
 
-
-            //var proposeData = []
-            //for (var i = 0; i < proposeDocs.length - 1; i++) {
-
-            //    proposeData.push({
-            //        name: proposeDocs[i],
-            //        type: "item"
-            //    });
-            //}
-
-            alert(proposeData);
+                proposeData.push({
+                    name: proposeDocs[i],
+                    type: "item"
+                });
+            }
 
             // INITIALIZING TREE
             var treeDataSource = new DataSourceTree({
                 data: [
                     {
                         name: 'Propose', type: 'folder', 'icon-class': 'blue', additionalParameters: { id: 'F1' },
-                        data: [{ name: 'Concept Proposal Form', type: 'item',additionalParameters: { id: 'I2' },
-                                { name: 'Conceptual Architecture', type: 'item',additionalParameters: { id: 'I2' } 
-                            ]
+                        data: [{ name: "<a href = 'https://teamheisenberg.sharepoint.com/_layouts/15/WopiFrame.aspx?sourcedoc={701E66F9-DE73-4F0D-9F2E-CDC184E92F41}&file=Concept%20Proposal%20Form.docx&action=default'>Concept Proposal Form</a>", type: 'item', additionalParameters: { id: 'I2' } },
+                                { name: "<a href = 'https://teamheisenberg.sharepoint.com/_layouts/15/VisioWebAccess/VisioWebAccess.aspx?id=/Propose/Conceptual%20Architecture.vsdx&Source=https%3A%2F%2Fteamheisenberg%2Esharepoint%2Ecom%2FPropose%2FForms%2FAllItems%2Easpx'>Conceptual Architecture</a>", type: 'item', additionalParameters: { id: 'I2' } }
+                        ]
                     },
-                    { name: 'Research', type: 'folder', 'icon-class': 'blue', additionalParameters: { id: 'F2' } },
-                    { name: 'Define', type: 'folder', 'icon-class': 'blue', additionalParameters: { id: 'F3' } },
-                    { name: 'Design', type: 'folder', 'icon-class': 'blue', additionalParameters: { id: 'F4' } },
-                    { name: 'Implement', type: 'folder', 'icon-class': 'blue', additionalParameters: { id: 'F5' } },
+                    {
+                        name: 'Research', type: 'folder', 'icon-class': 'blue', additionalParameters: { id: 'F2' },
+                        data: [{ name: "<a href = 'https://teamheisenberg.sharepoint.com/_layouts/15/WopiFrame.aspx?sourcedoc={701E66F9-DE73-4F0D-9F2E-CDC184E92F41}&file=Concept%20Proposal%20Form.docx&action=default'>Concept Proposal Form</a>", type: 'item', additionalParameters: { id: 'I2' } },
+                             { name: "<a href = 'https://teamheisenberg.sharepoint.com/_layouts/15/VisioWebAccess/VisioWebAccess.aspx?id=/Propose/Conceptual%20Architecture.vsdx&Source=https%3A%2F%2Fteamheisenberg%2Esharepoint%2Ecom%2FPropose%2FForms%2FAllItems%2Easpx'>Conceptual Architecture</a>", type: 'item', additionalParameters: { id: 'I2' } }
+                        ]
+                    },
+                    {
+                        name: 'Define', type: 'folder', 'icon-class': 'blue', additionalParameters: { id: 'F3' },
+                        data: [{ name: "<a href = 'https://teamheisenberg.sharepoint.com/_layouts/15/WopiFrame.aspx?sourcedoc={701E66F9-DE73-4F0D-9F2E-CDC184E92F41}&file=Concept%20Proposal%20Form.docx&action=default'>Concept Proposal Form</a>", type: 'item', additionalParameters: { id: 'I2' } },
+                                { name: "<a href = 'https://teamheisenberg.sharepoint.com/_layouts/15/VisioWebAccess/VisioWebAccess.aspx?id=/Propose/Conceptual%20Architecture.vsdx&Source=https%3A%2F%2Fteamheisenberg%2Esharepoint%2Ecom%2FPropose%2FForms%2FAllItems%2Easpx'>Conceptual Architecture</a>", type: 'item', additionalParameters: { id: 'I2' } }
+                        ]
+                    },
+                    {
+                        name: 'Design', type: 'folder', 'icon-class': 'blue', additionalParameters: { id: 'F4' },
+                        data: [{ name: "<a href = 'https://teamheisenberg.sharepoint.com/_layouts/15/WopiFrame.aspx?sourcedoc={701E66F9-DE73-4F0D-9F2E-CDC184E92F41}&file=Concept%20Proposal%20Form.docx&action=default'>Concept Proposal Form</a>", type: 'item', additionalParameters: { id: 'I2' } },
+                            { name: "<a href = 'https://teamheisenberg.sharepoint.com/_layouts/15/VisioWebAccess/VisioWebAccess.aspx?id=/Propose/Conceptual%20Architecture.vsdx&Source=https%3A%2F%2Fteamheisenberg%2Esharepoint%2Ecom%2FPropose%2FForms%2FAllItems%2Easpx'>Configuration Specification</a>", type: 'item', additionalParameters: { id: 'I2' }, }
+                        ]
+                    },
+                    {
+                        name: 'Implement', type: 'folder', 'icon-class': 'blue', additionalParameters: { id: 'F5' },
+                        data: [{ name: "<a href = 'https://teamheisenberg.sharepoint.com/_layouts/15/WopiFrame.aspx?sourcedoc={701E66F9-DE73-4F0D-9F2E-CDC184E92F41}&file=Concept%20Proposal%20Form.docx&action=default'>Contengency Plan</a>", type: 'item', additionalParameters: { id: 'I2' } },
+                            { name: "<a href = 'https://teamheisenberg.sharepoint.com/_layouts/15/VisioWebAccess/VisioWebAccess.aspx?id=/Propose/Conceptual%20Architecture.vsdx&Source=https%3A%2F%2Fteamheisenberg%2Esharepoint%2Ecom%2FPropose%2FForms%2FAllItems%2Easpx'>Cutover Plan</a>", type: 'item', additionalParameters: { id: 'I2' } }
+                        ]
+                    },
                 ],
                 delay: 400
             });
@@ -132,5 +144,3 @@
         });
     </script>
 }
-
-
