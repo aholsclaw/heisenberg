@@ -52,7 +52,7 @@ namespace BeyondThemes.BeyondAdmin.Models
                 .HasRequired(t => t.PhaseType);
 
             modelBuilder.Entity<ProjectTask>()
-                .HasRequired(pt => pt.ProjectTaskType);
+                .HasRequired(p => p.ProjectTaskType);
 
             modelBuilder.Entity<Cost>()
                 .HasRequired(c => c.CostType);

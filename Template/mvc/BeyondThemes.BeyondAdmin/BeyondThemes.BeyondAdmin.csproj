@@ -190,7 +190,9 @@
     <Compile Include="Controllers\ProjectTaskTypeController.cs" />
     <Compile Include="Controllers\ReferencesController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
+    <Compile Include="Controllers\ResourceTypeController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -448,6 +450,16 @@
     <Content Include="Views\Resource\Details.cshtml" />
     <Content Include="Views\Resource\Edit.cshtml" />
     <Content Include="Views\Resource\Index.cshtml" />
+    <Content Include="Views\Status\Create.cshtml" />
+    <Content Include="Views\Status\Delete.cshtml" />
+    <Content Include="Views\Status\Details.cshtml" />
+    <Content Include="Views\Status\Edit.cshtml" />
+    <Content Include="Views\Status\Index.cshtml" />
+    <Content Include="Views\ResourceType\Create.cshtml" />
+    <Content Include="Views\ResourceType\Delete.cshtml" />
+    <Content Include="Views\ResourceType\Details.cshtml" />
+    <Content Include="Views\ResourceType\Edit.cshtml" />
+    <Content Include="Views\ResourceType\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
