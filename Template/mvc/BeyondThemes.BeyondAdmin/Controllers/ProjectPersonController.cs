@@ -41,7 +41,7 @@ namespace BeyondThemes.BeyondAdmin.Controllers
         {
             ViewBag.PersonID = new SelectList(db.People, "PersonID", "FirstName");
             ViewBag.ProjectID = new SelectList(db.Projects, "ProjectID", "Title");
-            ViewBag.ProjectPersonId = new SelectList(db.Roles, "RoleID", "RoleName");
+            ViewBag.RoleID = new SelectList(db.Roles, "RoleID", "RoleName");
             return View();
         }
 
@@ -50,7 +50,7 @@ namespace BeyondThemes.BeyondAdmin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProjectPersonId,ProjectID,PersonID,RoleID")] ProjectPerson projectPerson)
+        public ActionResult Create([Bind(Include = "ProjectPersonID,ProjectID,PersonID,RoleID")] ProjectPerson projectPerson)
         {
             if (ModelState.IsValid)
             {
@@ -61,7 +61,7 @@ namespace BeyondThemes.BeyondAdmin.Controllers
 
             ViewBag.PersonID = new SelectList(db.People, "PersonID", "FirstName", projectPerson.PersonID);
             ViewBag.ProjectID = new SelectList(db.Projects, "ProjectID", "Title", projectPerson.ProjectID);
-            ViewBag.ProjectPersonId = new SelectList(db.Roles, "RoleID", "RoleName", projectPerson.ProjectPersonId);
+            ViewBag.RoleID = new SelectList(db.Roles, "RoleID", "RoleName", projectPerson.RoleID);
             return View(projectPerson);
         }
 
@@ -79,7 +79,7 @@ namespace BeyondThemes.BeyondAdmin.Controllers
             }
             ViewBag.PersonID = new SelectList(db.People, "PersonID", "FirstName", projectPerson.PersonID);
             ViewBag.ProjectID = new SelectList(db.Projects, "ProjectID", "Title", projectPerson.ProjectID);
-            ViewBag.ProjectPersonId = new SelectList(db.Roles, "RoleID", "RoleName", projectPerson.ProjectPersonId);
+            ViewBag.RoleID = new SelectList(db.Roles, "RoleID", "RoleName", projectPerson.RoleID);
             return View(projectPerson);
         }
 
@@ -88,7 +88,7 @@ namespace BeyondThemes.BeyondAdmin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProjectPersonId,ProjectID,PersonID,RoleID")] ProjectPerson projectPerson)
+        public ActionResult Edit([Bind(Include = "ProjectPersonID,ProjectID,PersonID,RoleID")] ProjectPerson projectPerson)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace BeyondThemes.BeyondAdmin.Controllers
             }
             ViewBag.PersonID = new SelectList(db.People, "PersonID", "FirstName", projectPerson.PersonID);
             ViewBag.ProjectID = new SelectList(db.Projects, "ProjectID", "Title", projectPerson.ProjectID);
-            ViewBag.ProjectPersonId = new SelectList(db.Roles, "RoleID", "RoleName", projectPerson.ProjectPersonId);
+            ViewBag.RoleID = new SelectList(db.Roles, "RoleID", "RoleName", projectPerson.RoleID);
             return View(projectPerson);
         }
 
