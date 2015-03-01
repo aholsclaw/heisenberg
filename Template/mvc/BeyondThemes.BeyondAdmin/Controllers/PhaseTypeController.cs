@@ -17,8 +17,7 @@ namespace BeyondThemes.BeyondAdmin.Controllers
         // GET: PhaseType
         public ActionResult Index()
         {
-            var phaseTypes = db.PhaseTypes.Include(p => p.ProjectPhase);
-            return View(phaseTypes.ToList());
+            return View(db.PhaseTypes.ToList());
         }
 
         // GET: PhaseType/Details/5
@@ -39,7 +38,6 @@ namespace BeyondThemes.BeyondAdmin.Controllers
         // GET: PhaseType/Create
         public ActionResult Create()
         {
-            ViewBag.PhaseTypeID = new SelectList(db.ProjectPhases, "ProjectPhaseID", "ProjectPhaseID");
             return View();
         }
 
@@ -57,7 +55,6 @@ namespace BeyondThemes.BeyondAdmin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PhaseTypeID = new SelectList(db.ProjectPhases, "ProjectPhaseID", "ProjectPhaseID", phaseType.PhaseTypeID);
             return View(phaseType);
         }
 
@@ -73,7 +70,6 @@ namespace BeyondThemes.BeyondAdmin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PhaseTypeID = new SelectList(db.ProjectPhases, "ProjectPhaseID", "ProjectPhaseID", phaseType.PhaseTypeID);
             return View(phaseType);
         }
 
@@ -90,7 +86,6 @@ namespace BeyondThemes.BeyondAdmin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PhaseTypeID = new SelectList(db.ProjectPhases, "ProjectPhaseID", "ProjectPhaseID", phaseType.PhaseTypeID);
             return View(phaseType);
         }
 
