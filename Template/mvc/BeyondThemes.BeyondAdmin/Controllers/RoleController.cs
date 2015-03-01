@@ -17,8 +17,7 @@ namespace BeyondThemes.BeyondAdmin.Controllers
         // GET: Role
         public ActionResult Index()
         {
-            var roles = db.Roles.Include(r => r.ProjectPerson);
-            return View(roles.ToList());
+            return View(db.Roles.ToList());
         }
 
         // GET: Role/Details/5
@@ -39,7 +38,6 @@ namespace BeyondThemes.BeyondAdmin.Controllers
         // GET: Role/Create
         public ActionResult Create()
         {
-            ViewBag.RoleID = new SelectList(db.ProjectPersons, "ProjectPersonId", "ProjectPersonId");
             return View();
         }
 
@@ -57,7 +55,6 @@ namespace BeyondThemes.BeyondAdmin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.RoleID = new SelectList(db.ProjectPersons, "ProjectPersonId", "ProjectPersonId", role.RoleID);
             return View(role);
         }
 
@@ -73,7 +70,6 @@ namespace BeyondThemes.BeyondAdmin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.RoleID = new SelectList(db.ProjectPersons, "ProjectPersonId", "ProjectPersonId", role.RoleID);
             return View(role);
         }
 
@@ -90,7 +86,6 @@ namespace BeyondThemes.BeyondAdmin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.RoleID = new SelectList(db.ProjectPersons, "ProjectPersonId", "ProjectPersonId", role.RoleID);
             return View(role);
         }
 
