@@ -39,7 +39,7 @@ namespace BeyondThemes.BeyondAdmin.Controllers
         // GET: Status/Create
         public ActionResult Create()
         {
-            ViewBag.PersonID = new SelectList(db.People, "PersonID", "FirstName");
+            ViewBag.PersonID = new SelectList(db.People, "PersonID", "Username");
             ViewBag.ProjectID = new SelectList(db.Projects, "ProjectID", "Title");
             return View();
         }
@@ -58,7 +58,7 @@ namespace BeyondThemes.BeyondAdmin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PersonID = new SelectList(db.People, "PersonID", "FirstName", status.PersonID);
+            ViewBag.PersonID = new SelectList(db.People, "PersonID", "Username", status.PersonID);
             ViewBag.ProjectID = new SelectList(db.Projects, "ProjectID", "Title", status.ProjectID);
             return View(status);
         }
@@ -75,7 +75,7 @@ namespace BeyondThemes.BeyondAdmin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonID = new SelectList(db.People, "PersonID", "FirstName", status.PersonID);
+            ViewBag.PersonID = new SelectList(db.People, "PersonID", "Username", status.PersonID);
             ViewBag.ProjectID = new SelectList(db.Projects, "ProjectID", "Title", status.ProjectID);
             return View(status);
         }
@@ -93,7 +93,7 @@ namespace BeyondThemes.BeyondAdmin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonID = new SelectList(db.People, "PersonID", "FirstName", status.PersonID);
+            ViewBag.PersonID = new SelectList(db.People, "PersonID", "Username", status.PersonID);
             ViewBag.ProjectID = new SelectList(db.Projects, "ProjectID", "Title", status.ProjectID);
             return View(status);
         }
