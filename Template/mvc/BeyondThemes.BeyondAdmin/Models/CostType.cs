@@ -10,5 +10,6 @@ namespace BeyondThemes.BeyondAdmin.Models
         public int CostTypeID { get; set; }
         public string CostTypeName { get; set; }
 
+        public virtual ICollection<Cost> Costs { get; set; }
     }
 }

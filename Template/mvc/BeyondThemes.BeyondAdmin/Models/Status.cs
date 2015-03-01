@@ -14,6 +14,8 @@ namespace BeyondThemes.BeyondAdmin.Models
         public int StatusColor { get; set; }
         public string StatusDescription { get; set; }
 
+        public virtual Project Project { get; set; }
+        public virtual Person Person { get; set; }
 
     }
 }

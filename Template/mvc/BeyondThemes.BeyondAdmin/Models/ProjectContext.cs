@@ -39,10 +39,17 @@ namespace BeyondThemes.BeyondAdmin.Models
 
         public System.Data.Entity.DbSet<BeyondThemes.BeyondAdmin.Models.Status> Status { get; set; }
 
-        public System.Data.Entity.DbSet<BeyondThemes.BeyondAdmin.Models.TaskType> TaskTypes { get; set; }
+        public System.Data.Entity.DbSet<BeyondThemes.BeyondAdmin.Models.GoLive> GoLives { get; set; }
 
-        public System.Data.Entity.DbSet<BeyondThemes.BeyondAdmin.Models.GoLiveTask> GoLiveTasks { get; set; }
+        public System.Data.Entity.DbSet<BeyondThemes.BeyondAdmin.Models.GoLiveType> GoLiveTypes { get; set; }
 
+        public System.Data.Entity.DbSet<BeyondThemes.BeyondAdmin.Models.ProjectPhase> ProjectPhases { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            
+        }
       
     }
 }

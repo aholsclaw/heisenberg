@@ -9,5 +9,7 @@ namespace BeyondThemes.BeyondAdmin.Models
     {
         public int ResourceTypeID { get; set; }
         public string ResourceTypeName { get; set; }
+
+        public virtual Resource Resource { get; set; }
     }
 }

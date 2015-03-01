@@ -12,5 +12,8 @@ namespace BeyondThemes.BeyondAdmin.Models
         public int PersonID { get; set; }
         public int RoleID { get; set; }
 
+        public virtual Project Project { get; set; }
+        public virtual Person Person { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

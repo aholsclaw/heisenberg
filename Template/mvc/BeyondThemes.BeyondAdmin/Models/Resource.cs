@@ -14,5 +14,8 @@ namespace BeyondThemes.BeyondAdmin.Models
         public int Year { get; set; }
         public int Quarter { get; set; }
         public bool PostProject { get; set; }
+
+        public virtual Project Project { get; set; }
+        public virtual ResourceType ResourceType { get; set; }
     }
 }
