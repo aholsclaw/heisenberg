@@ -39,17 +39,32 @@ namespace BeyondThemes.BeyondAdmin.Models
 
         public System.Data.Entity.DbSet<BeyondThemes.BeyondAdmin.Models.Status> Status { get; set; }
 
-        public System.Data.Entity.DbSet<BeyondThemes.BeyondAdmin.Models.GoLive> GoLives { get; set; }
-
-        public System.Data.Entity.DbSet<BeyondThemes.BeyondAdmin.Models.GoLiveType> GoLiveTypes { get; set; }
-
         public System.Data.Entity.DbSet<BeyondThemes.BeyondAdmin.Models.ProjectPhase> ProjectPhases { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            
+
+            modelBuilder.Entity<ProjectPerson>()
+                .HasRequired(p => p.Role);
+
+            modelBuilder.Entity<ProjectPhase>()
+                .HasRequired(t => t.PhaseType);
+
+            modelBuilder.Entity<ProjectTask>()
+                .HasRequired(pt => pt.ProjectTaskType);
+
+            modelBuilder.Entity<Cost>()
+                .HasRequired(c => c.CostType);
+
+            modelBuilder.Entity<Resource>()
+                .HasRequired(r => r.ResourceType);
+
         }
+
+        public System.Data.Entity.DbSet<BeyondThemes.BeyondAdmin.Models.ProjectTask> ProjectTasks { get; set; }
+
+        public System.Data.Entity.DbSet<BeyondThemes.BeyondAdmin.Models.ProjectTaskType> ProjectTaskTypes { get; set; }
       
     }
 }
