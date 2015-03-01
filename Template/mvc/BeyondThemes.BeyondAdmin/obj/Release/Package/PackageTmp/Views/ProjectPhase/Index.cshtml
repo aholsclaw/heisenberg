@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BeyondThemes.BeyondAdmin.Models.ProjectPhase>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PhaseType.PhaseTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhaseTypeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ForecastCompletion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActualCompletion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhaseType.PhaseTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhaseTypeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ForecastCompletion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualCompletion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProjectPhaseID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProjectPhaseID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProjectPhaseID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -467,6 +467,7 @@
     <Content Include="Views\Budget\Details.cshtml" />
     <Content Include="Views\Budget\Edit.cshtml" />
     <Content Include="Views\Budget\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\teamheisenberg.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

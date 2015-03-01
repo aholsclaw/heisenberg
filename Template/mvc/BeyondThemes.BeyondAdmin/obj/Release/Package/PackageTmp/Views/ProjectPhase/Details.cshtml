@@ -1,0 +1,58 @@
+﻿@model BeyondThemes.BeyondAdmin.Models.ProjectPhase
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProjectPhase</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhaseType.PhaseTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhaseType.PhaseTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhaseTypeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhaseTypeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ForecastCompletion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ForecastCompletion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualCompletion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualCompletion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProjectPhaseID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
