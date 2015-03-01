@@ -12,5 +12,8 @@ namespace BeyondThemes.BeyondAdmin.Models
         public string LastName { get; set; }
         public string UserName { get; set; }
 
+        public ICollection<ProjectPerson> ProjectPeople { get; set; }
+        public virtual ICollection<Status> Statuses { get; set; }
+
     }
 }

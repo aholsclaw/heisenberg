@@ -9,5 +9,7 @@ namespace BeyondThemes.BeyondAdmin.Models
     {
         public int PhaseTypeID { get; set; }
         public string PhaseTypeName { get; set; }
+
+        public virtual ProjectPhase ProjectPhase { get; set; }
     }
 }
