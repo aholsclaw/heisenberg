@@ -17,8 +17,7 @@ namespace BeyondThemes.BeyondAdmin.Controllers
         // GET: ResourceType
         public ActionResult Index()
         {
-            var resourceTypes = db.ResourceTypes.Include(r => r.Resource);
-            return View(resourceTypes.ToList());
+            return View(db.ResourceTypes.ToList());
         }
 
         // GET: ResourceType/Details/5
@@ -39,7 +38,6 @@ namespace BeyondThemes.BeyondAdmin.Controllers
         // GET: ResourceType/Create
         public ActionResult Create()
         {
-            ViewBag.ResourceTypeID = new SelectList(db.Resources, "ResourceID", "ResourceID");
             return View();
         }
 
@@ -57,7 +55,6 @@ namespace BeyondThemes.BeyondAdmin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ResourceTypeID = new SelectList(db.Resources, "ResourceID", "ResourceID", resourceType.ResourceTypeID);
             return View(resourceType);
         }
 
@@ -73,7 +70,6 @@ namespace BeyondThemes.BeyondAdmin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ResourceTypeID = new SelectList(db.Resources, "ResourceID", "ResourceID", resourceType.ResourceTypeID);
             return View(resourceType);
         }
 
@@ -90,7 +86,6 @@ namespace BeyondThemes.BeyondAdmin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ResourceTypeID = new SelectList(db.Resources, "ResourceID", "ResourceID", resourceType.ResourceTypeID);
             return View(resourceType);
         }
 

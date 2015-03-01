@@ -1,0 +1,93 @@
+﻿@model BeyondThemes.BeyondAdmin.Models.Status
+
+@{
+    ViewBag.Title = "Chart";
+}
+
+@{string iRed = "";}
+@{string iYellow = "";}
+@{string iGreen = "";}
+
+@foreach (var item in Model)
+{
+    if(@Html.DisplayFor(modelItem => item.Color)==1)
+    {
+        iGreen = iGreen + 1;
+    }
+    else if (@Html.DisplayFor(modelItem => item.Color)==2)
+    {
+        iYellow = iYellow + 1;
+    }
+    else
+    {
+        iRed = iRed + 1;
+    }
+}
+
+@{string sVals};
+sVals =  = iGreen,iYellow,iRed;
+
+<div id="Val">
+    @sVals
+</div>
+
+<input type="hidden" id="hiPropose" value="@sVals" />
+
+<div class="col-xs-12 col-md-6 col-lg-6">
+    <div class="widget">
+        <div class="widget-header ">
+            <span class="widget-caption">Donut Chart</span>
+            <div class="widget-buttons">
+                <a href="#" data-toggle="maximize">
+                    <i class="fa fa-expand"></i>
+                </a>
+                <a href="#" data-toggle="collapse">
+                    <i class="fa fa-minus"></i>
+                </a>
+                <a href="#" data-toggle="dispose">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="widget-body">
+            <div id="donut-chart" class="chart chart-lg"></div>
+        </div>
+    </div>
+</div>
+@section PageScripts{
+    <script src="assets/js/beyond.min.js"></script>
+
+    <!--Page Related Scripts-->
+    <script src="/assets/js/charts/morris/raphael-2.0.2.min.js"></script>
+    <script src="/assets/js/charts/morris/morris.js"></script>
+    <script src="/assets/js/charts/morris/morris-init.js"></script>
+
+<script type="text/javascript">
+
+    var x = document.getElementById("Val").innerText;
+
+    x = x.split(",");
+    var chartData = []
+    for (var i = 0; i < x.length - 1;)
+    {
+        chartData.push({
+            label: x[i],
+            value: parsein(x[i+1])
+        });
+        i + 2;
+    }
+
+    var InitiateDonutChart = function () {
+        return {
+            init: function () {
+                Morris.Donut({
+                    element: 'donut-chart',
+                    data: chartData,
+                    colors: [green, yellow, red],
+                    formatter: function (y) { return y + "%" }
+                });
+            }
+        };
+    }();
+</script>
+

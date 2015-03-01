@@ -1,2 +1,7 @@
 Template/mvc/BeyondThemes.Bootstrap.v12.suo
 Template/mvc/BeyondThemes.Bootstrap.v12.suo
+Template/mvc/BeyondThemes.BeyondAdmin/obj/Debug/BeyondThemes.BeyondAdmin.dll
+*.pdb
+Template/mvc/BeyondThemes.BeyondAdmin/BeyondThemes.BeyondAdmin.csproj
+Template/mvc/BeyondThemes.BeyondAdmin/bin/BeyondThemes.BeyondAdmin.dll
+Template/mvc/BeyondThemes.BeyondAdmin/bin/BeyondThemes.BeyondAdmin.pdb
