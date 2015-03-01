@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using System.Data.Entity;
 
 [assembly: OwinStartup(typeof(BeyondThemes.BeyondAdmin.Startup))]
 namespace BeyondThemes.BeyondAdmin
@@ -9,6 +10,7 @@ namespace BeyondThemes.BeyondAdmin
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            Database.SetInitializer<BeyondThemes.BeyondAdmin.Models.ProjectContext>(new DropCreateDatabaseIfModelChanges<BeyondThemes.BeyondAdmin.Models.ProjectContext>());
         }
     }
 }
