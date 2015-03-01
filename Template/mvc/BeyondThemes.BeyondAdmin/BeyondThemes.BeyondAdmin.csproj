@@ -177,6 +177,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BudgetController.cs" />
     <Compile Include="Controllers\CostController.cs" />
     <Compile Include="Controllers\CostTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -197,6 +198,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Budget.cs" />
     <Compile Include="Models\Cost.cs" />
     <Compile Include="Models\CostType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -460,6 +462,11 @@
     <Content Include="Views\ResourceType\Details.cshtml" />
     <Content Include="Views\ResourceType\Edit.cshtml" />
     <Content Include="Views\ResourceType\Index.cshtml" />
+    <Content Include="Views\Budget\Create.cshtml" />
+    <Content Include="Views\Budget\Delete.cshtml" />
+    <Content Include="Views\Budget\Details.cshtml" />
+    <Content Include="Views\Budget\Edit.cshtml" />
+    <Content Include="Views\Budget\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

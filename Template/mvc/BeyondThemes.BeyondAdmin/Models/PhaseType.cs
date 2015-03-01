@@ -11,5 +11,6 @@ namespace BeyondThemes.BeyondAdmin.Models
         public string PhaseTypeName { get; set; }
 
         public virtual ProjectPhase ProjectPhase { get; set; }
+        public virtual Budget Budget { get; set; }
     }
 }

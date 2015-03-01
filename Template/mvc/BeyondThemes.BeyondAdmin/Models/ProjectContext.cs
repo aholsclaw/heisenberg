@@ -60,11 +60,15 @@ namespace BeyondThemes.BeyondAdmin.Models
             modelBuilder.Entity<Resource>()
                 .HasRequired(r => r.ResourceType);
 
+            modelBuilder.Entity<Budget>()
+                .HasRequired(r => r.PhaseType);
         }
 
         public System.Data.Entity.DbSet<BeyondThemes.BeyondAdmin.Models.ProjectTask> ProjectTasks { get; set; }
 
         public System.Data.Entity.DbSet<BeyondThemes.BeyondAdmin.Models.ProjectTaskType> ProjectTaskTypes { get; set; }
+
+        public System.Data.Entity.DbSet<BeyondThemes.BeyondAdmin.Models.Budget> Budgets { get; set; }
       
     }
 }
