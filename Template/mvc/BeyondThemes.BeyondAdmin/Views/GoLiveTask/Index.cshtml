@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BeyondThemes.BeyondAdmin.Models.GoLiveTask>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TaskTypeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OriginalForecast)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RevisedForecast)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Actual)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaskTypeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OriginalForecast)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RevisedForecast)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Actual)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GoLiveTaskID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GoLiveTaskID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GoLiveTaskID })
+        </td>
+    </tr>
+}
+
+</table>

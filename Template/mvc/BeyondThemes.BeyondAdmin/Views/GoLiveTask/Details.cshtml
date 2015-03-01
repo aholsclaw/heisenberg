@@ -1,0 +1,58 @@
+﻿@model BeyondThemes.BeyondAdmin.Models.GoLiveTask
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GoLiveTask</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TaskTypeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaskTypeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OriginalForecast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OriginalForecast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RevisedForecast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RevisedForecast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Actual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Actual)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GoLiveTaskID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
